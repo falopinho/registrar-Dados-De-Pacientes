@@ -78,7 +78,7 @@ def nascimento():
     while True:
         if len(nascimento) == 8:
             nascimento = int(nascimento[4:8])
-            print(nascimento)
+            #print(nascimento)
             return
         else:
             nascimento = input("Sua data de nascimento, precisa de 8 dígitos, e não pode conter '/'\npor favor escreva novamente: ")
