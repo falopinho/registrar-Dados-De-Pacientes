@@ -1,20 +1,31 @@
-import customtkinter
+import customtkinter as ctk
 import buttom
 
-janela = customtkinter.CTk()
-janela.title("Cadastro de Pacientes")
-janela.geometry('500x300')
+menu = ctk.CTk()
+menu.title("Cadastro de Pacientes")
+menu.geometry('500x300')
 
-texto = customtkinter.CTkLabel(janela, text="Cadastro de Pacientes")
+
+#Configurando janela menu
+texto = ctk.CTkLabel(menu, text="Cadastro de Pacientes")
 texto.pack(padx="10", pady="20")
 
-texto1 = customtkinter.CTkLabel(janela, text="Deseja cadastrar um cliente?")
+texto1 = ctk.CTkLabel(menu, text="Deseja cadastrar um cliente?")
 texto1.pack(padx="10", pady="10")
 
-botao = customtkinter.CTkButton(janela, text="Sim" )
+#configurando janela main
+def main ():
+    main = ctk.CTkToplevel(menu)
+    main.geometry('500x300')
+    main.title("Cadastro de Pacientes")
+    
+
+#botões sim e não
+botao = ctk.CTkButton(master=menu, text="Sim", command=main)
 botao.pack(padx="10", pady="20")
 
-botao1 = customtkinter.CTkButton(janela, text="Não", command=buttom.desligar)
+botao1 = ctk.CTkButton(menu, text="Não", command=buttom.desligar)
 botao1.pack(padx="10", pady="20")
 
-janela.mainloop()
+
+menu.mainloop()
