@@ -1,8 +1,8 @@
 def cadastro():
     #Nome
     nome = input("Digite um nome: ").lower()
-    if all(c.isalpha() or c.isspace() for c in nome):
-        return
+    if all(a.isalpha() or a.isspace() for a in nome):
+        pass
     else:
         nome = input("Essa não é uma opção válida, por favor tente novamente: ").lower()
     
@@ -17,8 +17,8 @@ def cadastro():
 
     #CPF
     cpf = input("Digite o CPF: ")
-    if all(c.isnumeric() or c.isspace() for c in cpf):
-        return
+    if all(b.isnumeric() or b.isspace() for b in cpf):
+        pass
     elif len(cpf) != 11:
         cpf = input("Seu CPF precisa de 11 dígitos.\npor favor escreva novamente: ")
     
@@ -29,7 +29,7 @@ def cadastro():
     #RG 
     rg = input("Digite o RG: ").lower()
     if len(rg) == 10:
-        return
+        pass
     else:
         rg = input("Seu RG precisa de 10 dígitos.\npor favor escreva novamente: ").lower()
 
@@ -37,7 +37,7 @@ def cadastro():
     #TEL
     tel = input("Digite o Telefone: ")
     if all(c.isnumeric() and c.issapace() for c in tel):
-        return
+        pass
     elif len(tel) != 11:
         tel = input("Seu telefone precisa de 11 dígitos.\npor favor escreva novamente: ")
     else:
@@ -46,9 +46,7 @@ def cadastro():
     
     #Idade
     idade = input("Digite o Idade: ")
-    if all(c.isnumeric() and c.issapace() for c in idade):
-        return
+    if all(d.isnumeric() and d.issapace() for d in idade):
+        pass
     else:
         idade = input("Por favor digite um idade válida: ")
-
-cadastro()
