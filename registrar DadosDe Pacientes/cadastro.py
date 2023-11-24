@@ -63,5 +63,3 @@ def cadastro():
             for valor2 in cliente2:
                 arquivo2.write(str(valor2) + "\n")
         print("Paciente adicionado em 'paciente grupo de risco' com sucesso.")
-    
-cadastro()
