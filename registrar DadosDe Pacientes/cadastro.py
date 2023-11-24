@@ -1,92 +1,54 @@
-#Nome
-def nome():
+def cadastro():
+    #Nome
+    nome = input("Digite um nome: ").lower()
+    if all(c.isalpha() or c.isspace() for c in nome):
+        return
+    else:
+        nome = input("Essa não é uma opção válida, por favor tente novamente: ").lower()
+    
 
-
-    nome = input("Nome Completo: ").lower()
-        
-    while True:
-                
-        if all(c.isalpha() or c.isspace() for c in nome):
-            return # sai do while
-        else:
-            nome = input("Por favor digite um nome válido (somente letras e espaços )\n").lower() 
-
-#nome()
-
-#Email
-def email():
-
-    email = str(input("Email: ")).lower()
+    #Email
+    email = input("Digite o email: ")
     if len(email) <= 7:
-            email = input("Seu email é muito curto.\npor favor escreva o email novamente: ").lower()
+        email = input("O email é muito curto, por favor digite o email novamente: ").lower()
     while "@" and ".com" not in email:
         email = input("Seu email deve ter '@' e '.com'\npor favor escreva o email novamente: ").lower()
 
 
-#email()
-
-#CPF
-def cpf():
-        
-    cpf = input("CPF: ")
+    #CPF
+    cpf = input("Digite o CPF: ")
+    if all(c.isnumeric() or c.isspace() for c in cpf):
+        return
+    elif len(cpf) != 11:
+        cpf = input("Seu CPF precisa de 11 dígitos.\npor favor escreva novamente: ")
     
-    while True:
-        if all(c.isnumeric() for c in cpf):
-            return
-        else:
-            cpf = input("Só é permitido números no CPF.\npor favor escreva novamente: ")
+    else:
+        cpf = input("Só é permitido números no CPF.\npor favor escreva novamente: ")
 
-        while True:
-            if len(cpf) == 11:
-                return
-            else:
-                cpf = input("Seu CPF precisa de 11 dígitos.\npor favor escreva novamente: ")
 
-            
-#cpf()
+    #RG 
+    rg = input("Digite o RG: ").lower()
+    if len(rg) == 10:
+        return
+    else:
+        rg = input("Seu RG precisa de 10 dígitos.\npor favor escreva novamente: ").lower()
 
-#RG
-def rg():
-    while True:
-        rg = input("RG: ").lower()
-        if len(rg) == 10:
-            return
-        else:
-            rg = input("Seu RG precisa de 10 dígitos.\npor favor escreva novamente: ").lower()
+
+    #TEL
+    tel = input("Digite o Telefone: ")
+    if all(c.isnumeric() and c.issapace() for c in tel):
+        return
+    elif len(tel) != 11:
+        tel = input("Seu telefone precisa de 11 dígitos.\npor favor escreva novamente: ")
+    else:
+        tel = input("Seu número de TELEFONE precisa de 11 dígitos e não é permitido letras,\npor favor escreva novamente: ")
+
     
+    #Idade
+    idade = input("Digite o Idade: ")
+    if all(c.isnumeric() and c.issapace() for c in idade):
+        return
+    else:
+        idade = input("Por favor digite um idade válida: ")
 
-#rg()
-
-#Telefone
-def tel():
-    while True:
-
-        tel = input("Telefone: ")
-        if len(tel) == 11:
-            return
-        else:
-            tel = input("Seu número de TELEFONE precisa de 11 dígitos,\npor favor escreva novamente: ")
-
-#tel()
-
-#Nascimento
-def nascimento():
-    nascimento = input("Data de Nascimento: ")
-
-    #idade = (2023 - ano) #Obtendo idade
-
-    while True:
-        if len(nascimento) == 8:
-            nascimento = int(nascimento[4:8])
-            #print(nascimento)
-            return
-        else:
-            nascimento = input("Sua data de nascimento, precisa de 8 dígitos, e não pode conter '/'\npor favor escreva novamente: ")
-
-        while True:
-            if all(c.isnumeric() for c in nascimento):
-                return
-            else:
-                nascimento = input("Só é permitido números no nascimentos\npor favor escreva novamente: ")
-
-#nascimento()
+cadastro()
