@@ -16,7 +16,7 @@ def cadastro():
 
 
     #CPF
-    cpf = input("Digite o CPF: ")
+    cpf = str(input("Digite o CPF: "))
     if all(b.isnumeric() or b.isspace() for b in cpf):
         pass
     elif len(cpf) != 11:
@@ -27,7 +27,7 @@ def cadastro():
 
 
     #RG 
-    rg = input("Digite o RG: ").lower()
+    rg = str(input("Digite o RG: ")).lower()
     if len(rg) == 10:
         pass
     else:
@@ -35,8 +35,8 @@ def cadastro():
 
 
     #TEL
-    tel = input("Digite o Telefone: ")
-    if all(c.isnumeric() and c.issapace() for c in tel):
+    tel = str(input("Digite o Telefone: "))
+    if all(c.isnumeric() and c.isspace() for c in tel):
         pass
     elif len(tel) != 11:
         tel = input("Seu telefone precisa de 11 dígitos.\npor favor escreva novamente: ")
@@ -45,8 +45,23 @@ def cadastro():
 
     
     #Idade
-    idade = input("Digite o Idade: ")
-    if all(d.isnumeric() and d.issapace() for d in idade):
-        pass
-    else:
-        idade = input("Por favor digite um idade válida: ")
+    idade = int(input("Digite o Idade: "))
+
+
+    #importa dados para a pasta
+    cliente = nome, email, cpf, rg, tel, idade
+    cliente2 = nome, email, cpf, rg, tel, idade
+
+    if idade < 65:
+        with open("./pacientes/" + str(nome) + ".txt", "w") as arquivo:
+            for valor in cliente:
+                arquivo.write(str(valor) + "\n")
+        print("Paciente adicionado em 'pacientes' com sucesso.")
+
+    elif idade >= 65:
+        with open("./paciente grupo de risco/" + str(nome) + ".txt", "w") as arquivo2:
+            for valor2 in cliente2:
+                arquivo2.write(str(valor2) + "\n")
+        print("Paciente adicionado em 'paciente grupo de risco' com sucesso.")
+    
+cadastro()
